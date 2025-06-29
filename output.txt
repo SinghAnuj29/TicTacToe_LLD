@@ -1,0 +1,82 @@
+This is a sample output
+
+Welcome to Tic Tac Toe! Developed by anujthengineer
+
+Current Board:
+  -  -  -
+  -  -  -
+  -  -  -
+
+Human's turn (symbol: X)
+Enter row (0-2): 0
+Enter column (0-2): 1
+
+Current Board:
+  -  X  -
+  -  -  -
+  -  -  -
+
+Computer's turn...
+
+Current Board:
+  O  X  -
+  -  -  -
+  -  -  -
+
+Human's turn (symbol: X)
+Enter row (0-2): 1 
+Enter column (0-2): 1
+
+Current Board:    
+  O  X  -
+  -  X  -
+  -  -  -
+
+Computer's turn...
+
+Current Board:    
+  O  X  O
+  O  X  O
+  -  X  -
+  -  -  -
+
+Human's turn (symbol: X)
+Enter row (0-2): 2
+Enter column (0-2): 1
+
+Current Board:
+  O  X  O
+  -  X  -
+  O  X  O
+  -  X  -
+  -  -  -
+
+Human's turn (symbol: X)
+Enter row (0-2): 2
+Enter column (0-2): 1
+
+Current Board:
+  O  X  O
+  -  X  -
+  -  -  -
+
+Human's turn (symbol: X)
+  O  X  O
+  -  X  -
+  -  -  -
+  O  X  O
+  -  X  -
+  O  X  O
+  -  X  -
+  -  -  -
+
+Human's turn (symbol: X)
+Enter row (0-2): 2
+Enter column (0-2): 1
+
+Current Board:
+  O  X  O
+  -  X  -
+  -  X  -
+
+Human wins!

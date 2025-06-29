@@ -30,7 +30,7 @@ public:
 private:
     void computerMove();
     std::pair<int, int> findBestMove() const;
-    int minimax(bool isMax, int depth) const;
+    int minimax(Board temp, bool isMax, int depth) const;
 };
 
 #endif

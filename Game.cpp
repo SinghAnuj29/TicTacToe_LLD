@@ -23,7 +23,7 @@ Game::~Game()
 void Game::initializePlayers(const string &p1Name, const string &p2Name)
 {
     player1 = new Player(p1Name, 'X');
-    player2 = new Player(p2Name, 'O', false); // Computer
+    player2 = new Player(p2Name, 'O', false); // This will be the computer move
     currentPlayer = player1;
 }
 
@@ -134,7 +134,7 @@ pair<int, int> Game::findBestMove() const
             {
                 Board temp = board;
                 temp.makeMove(i, j, player2->getSymbol());
-                int score = minimax(true, 0);
+                int score = minimax(temp, false, 0);
 
                 if (score > bestScore)
                 {
@@ -148,27 +148,27 @@ pair<int, int> Game::findBestMove() const
     return bestMove;
 }
 
-int Game::minimax(bool isMax, int depth) const
+int Game::minimax(Board temp, bool isMax, int depth) const
 {
-    if (board.checkWin(player2->getSymbol()))
+    if (temp.checkWin(player2->getSymbol()))
         return 10 - depth;
-    if (board.checkWin(player1->getSymbol()))
+    if (temp.checkWin(player1->getSymbol()))
         return depth - 10;
-    if (board.isFull())
+    if (temp.isFull())
         return 0;
 
     int bestScore = isMax ? numeric_limits<int>::min() : numeric_limits<int>::max();
 
-    for (int i = 0; i < board.getSize(); ++i)
+    for (int i = 0; i < temp.getSize(); ++i)
     {
-        for (int j = 0; j < board.getSize(); ++j)
+        for (int j = 0; j < temp.getSize(); ++j)
         {
-            if (board.isEmpty(i, j))
+            if (temp.isEmpty(i, j))
             {
-                Board temp = board;
                 temp.makeMove(i, j, isMax ? player2->getSymbol() : player1->getSymbol());
-                int score = minimax(!isMax, depth + 1);
+                int score = minimax(temp, !isMax, depth + 1);
                 bestScore = isMax ? max(bestScore, score) : min(bestScore, score);
+                temp.makeMove(i, j, '-'); // Optional undo
             }
         }
     }
